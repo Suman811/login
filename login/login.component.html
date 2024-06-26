@@ -1,0 +1,26 @@
+<div class ="container d-flex justify-content-center align-items-center min-vh-100" >
+  <div class = "col-12 col-md-8 col-lg-6">
+  
+ <form [formGroup]="loginform" (submit)="saveform()" class="p-4 border rounded bg-light">
+
+  <h2 class="mb-5">Login</h2>
+    <div class="mb-5">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control"  minLength="3" formControlName="username" id="username">
+      <div class="text-danger" *ngIf="loginform.controls.username.invalid && loginform.controls.username.touched ">Username is required with at least 3 characters</div>
+      
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control"  formControlName="password" id="password">
+      <div class="text-danger" *ngIf="loginform.controls.password.invalid && loginform.controls.password.touched">Password is required with at least one lowercase and one uppercase, a digit and special character</div>
+      
+
+    </div>
+    
+    <button routerLink="/success"  type="submit" [disabled]="loginform.invalid" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+
+</div>
